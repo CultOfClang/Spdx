@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Spdx
 {
-    public class License
+    public class License : HasDetails<Details>
     {
         [JsonPropertyName("reference")] public string Reference { get; set; }
         [JsonPropertyName("isDeprecatedLicenseId")] public bool IsDeprecatedLicenseId { get; set; }
@@ -14,6 +14,8 @@ namespace Spdx
         [JsonPropertyName("seeAlso")]  public Uri[] SeeAlso { get; set; }
         [JsonPropertyName("isOsiApproved")]  public bool IsOsiApproved { get; set; }
         [JsonPropertyName("isFsfLibre")]  public bool IsFsfLibre { get; set; }
+
+        public override string Id => LicenseId;
     }
 
 }
